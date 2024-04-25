@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card'
-import { Post, updatePost } from '@/lib/features/posts/postsSlice'
+import { Post, deletePost, updatePost } from '@/lib/features/posts/postsSlice'
 import { Button } from './ui/button'
 import Link from 'next/link'
 
@@ -64,8 +64,14 @@ const PostCard: React.FC<PostProps> = ({ data }) => {
 
     function onSubmitEdit(data: z.infer<typeof postUpdateSchema>) {
         dispatch(updatePost(data))
-        console.log(data)
     }
+
+    function onSubmitDelete(id: number | undefined) {
+        if (id !== undefined) {
+            dispatch(deletePost(id))
+        }
+    }
+
     return (
         <div className='w-full mx-auto px-4 flex justify-center'>
             <Card className='w-full flex flex-col justify-center items-start shadow-lg'>
@@ -128,7 +134,29 @@ const PostCard: React.FC<PostProps> = ({ data }) => {
                         <Button>Show</Button>
                     </Link>
 
-                    <Button variant={"destructive"} >Delete</Button>
+                    <Dialog>
+                        <DialogTrigger asChild>
+                            <Button variant={"destructive"} >Delete</Button>
+                        </DialogTrigger>
+                        <DialogContent>
+                            <DialogHeader>
+                                <DialogTitle>Are you absolutely sure?</DialogTitle>
+                                <DialogDescription>
+                                    This action cannot be undone. This will permanently delete your account
+                                    and remove your data from our servers.
+                                </DialogDescription>
+                            </DialogHeader>
+                            <DialogFooter>
+                                <DialogClose asChild>
+                                    <Button onClick={() => onSubmitDelete(data?.id)} variant={"destructive"}>Delete</Button>
+                                </DialogClose>
+                                <DialogClose asChild>
+                                    <Button variant={"secondary"}>Cancel</Button>
+                                </DialogClose>
+                            </DialogFooter>
+                        </DialogContent>
+                    </Dialog>
+
 
                 </CardFooter>
             </Card>
