@@ -29,8 +29,12 @@ const PostsPage = () => {
 
     const postSchema = z.object({
         id: z.number(),
-        title: z.string(),
-        content: z.string(),
+        title: z.string().min(1,{
+            message: 'Title is required',
+        }),
+        content: z.string().min(1,{
+            message: 'Content is required',
+        }),
         publicationDate: z.string().default(new Date().toLocaleString()),
     })
 
@@ -53,7 +57,7 @@ const PostsPage = () => {
 
     return (
         <section className='w-full h-full mt-8 flex flex-col gap-4'>
-            <div className='w-full container max-w-[400px]'>
+            <div className='w-full container max-w-[500px]'>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                         <FormField
@@ -86,8 +90,8 @@ const PostsPage = () => {
                     </form>
                 </Form>
             </div>
-            <Separator className='w-[400px] mx-auto' />
-            <div className='w-full h-full max-w-[400px] mx-auto flex flex-col gap-4 mb-[100px]'>
+            <Separator className='w-[500px] mx-auto' />
+            <div className='w-full h-full max-w-[500px] mx-auto flex flex-col gap-4 mb-[100px]'>
                 {posts.map((post: Post) => {
                     return (
                         <div key={post.id}>
