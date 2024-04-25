@@ -12,20 +12,21 @@ interface PostProps {
 
 const PostCard: React.FC<PostProps> = ({ data }) => {
     return (
-        <Link href={`/posts/${data?.id}`}>
-            <div className='w-full mx-auto max-w-[400px] px-4 flex justify-center cursor-pointer '>
-                <Card className='w-full flex flex-col justify-center items-start shadow-lg'>
-                    <CardHeader>
-                        <CardTitle>{data?.title}</CardTitle>
-                        <CardDescription>{data?.publicationDate}</CardDescription>
-                    </CardHeader>
-                    <CardFooter className='w-full flex justify-end' >
-                        <Button>Delete</Button>
-                    </CardFooter>
-                </Card>
+        <div className='w-full mx-auto px-4 flex justify-center'>
+            <Card className='w-full flex flex-col justify-center items-start shadow-lg'>
+                <CardHeader>
+                    <CardTitle>{data?.title}</CardTitle>
+                    <CardDescription>{data?.publicationDate}</CardDescription>
+                </CardHeader>
+                <CardFooter className='w-full flex flex-row justify-end gap-2 '>
+                    <Link href={`/posts/${data?.id}`} >
+                        <Button>Show</Button>
+                    </Link>
+                    <Button variant={"destructive"} >Delete</Button>
+                </CardFooter>
+            </Card>
 
-            </div>
-        </Link>
+        </div>
     )
 }
 
