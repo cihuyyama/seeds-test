@@ -93,8 +93,4 @@ project-root/
 The components folder contains React components used to build the user interface of the blog website. Here are the main components:
 
 - **PostCard**: Displays a single card of posts.
-- **PostFormCreate**: Form componen to create a post.
-
-## 5. Redux Store
-
-Redux Toolkit is employed for state management, specifically for managing blog post data. The Redux store configuration is located in the `store` folder and includes reducers for managing blog post state.
+- **PostFormCreate**: Form component to create a post.
