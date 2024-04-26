@@ -29,10 +29,8 @@ const postsSlice = createSlice({
         updatePost(state, action: PayloadAction<Post>) {
             const post = state.find((post) => post.id === action.payload.id);
             if (post) {
-                post.id = action.payload.id;
                 post.title = action.payload.title;
                 post.content = action.payload.content;
-                post.publicationDate = action.payload.publicationDate;
             }
         }
     }

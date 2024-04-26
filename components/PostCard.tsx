@@ -1,7 +1,7 @@
 "use client"
 
 import React from 'react'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card'
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from './ui/card'
 import { Post, deletePost, updatePost } from '@/lib/features/posts/postsSlice'
 import { Button } from './ui/button'
 import Link from 'next/link'
@@ -20,7 +20,6 @@ import {
 import {
     Form,
     FormControl,
-    FormDescription,
     FormField,
     FormItem,
     FormLabel,
