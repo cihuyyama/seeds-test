@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This documentation provides an overview of the structure, functionality, and setup of the Next.js blog project using Tailwind CSS for styling and Redux Toolkit for state management.
+This documentation provides an overview of the structure, functionality, and setup of the Next.js blog project using Tailwind CSS for styling and Redux Toolkit for state management. See preview demo here https://seeds-test-git-features-basic-blog-crud-al-habibs-projects.vercel.app
 
 ## Table of Contents
 
