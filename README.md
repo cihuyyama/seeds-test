@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Documentation
 
-## Getting Started
+## Introduction
 
-First, run the development server:
+This documentation provides an overview of the structure, functionality, and setup of the Next.js blog project using Tailwind CSS for styling and Redux Toolkit for state management. See preview demo here https://seeds-test-git-features-basic-blog-crud-al-habibs-projects.vercel.app
+
+## Table of Contents
+
+1. [Project Overview](#project-overview)
+2. [Installation](#installation)
+3. [Folder Structure](#folder-structure)
+4. [Components](#components)
+5. [Redux Store](#redux-store)
+6. [Styling with Tailwind CSS](#styling-with-tailwind-css)
+7. [Deployment](#deployment)
+
+## 1. Project Overview
+
+The project is a simple blog website created using Next.js, a React framework, for server-side rendering and routing. Tailwind CSS is used for styling to ensure a responsive and visually appealing design. Redux Toolkit is utilized for state management, especially for managing blog post data.
+
+## 2. Get Started
+
+### Run Project
+To run the project locally in dev mode, follow these steps:
+
+1. Install dependencies using npm or yarn:
+
+```bash
+npm install
+```
+
+2. Start the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Open your browser and navigate to http://localhost:3000 to view the blog website.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Run Project with Docker
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. Build App Image
 
-## Learn More
+```bash
+docker-compose build --no-cache
+```
 
-To learn more about Next.js, take a look at the following resources:
+2. Run Container
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+docker-compose up -d
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+3. Open your browser and navigate to http://localhost:3000 to view the blog website.
 
-## Deploy on Vercel
+4. (Informational to stop docker compose)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+docker-compose down
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## 3. Folder Structure
+
+The project follows a standard Next.js folder structure with additional folders for components, Redux store configuration, and styles. Here's a brief overview:
+
+- **app**: Contains Next.js pages, including the homepage and individual blog post pages.
+- **components**: Holds React components used throughout the application, such as BlogList, BlogPost, and Navigation.
+- **lib**: Includes Redux store configuration and reducers for managing blog post state.
+
+```bash
+project-root/
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   ├── posts/
+│   │   ├──page.tsx
+│   │   ├──[slug]
+│   │   │    ├──page.tsx
+├── components/
+│   ├── PostCard.tsx
+│   ├── PostFormCreate.tsx
+├── lib/
+│   ├── features
+│   │   ├──slices
+│   ├── store
+│   ├── hooks
+└── package.json
+```
+
+## 4. Components
+
+The components folder contains React components used to build the user interface of the blog website. Here are the main components:
+
+- **PostCard**: Displays a single card of posts.
+- **PostFormCreate**: Form component to create a post.
